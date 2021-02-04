@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "type": "mssql.local",
+      "connectionId": "EmployeeSystemDesignPatternsContext"
+    },
+    "mssql2": {
+      "type": "mssql.local",
+      "connectionId": "EmployeeDBContext"
+    },
+    "mssql3": {
+      "type": "mssql.local",
+      "connectionId": "EmployeeSystemDBContext"
+    }
+  }
+}
