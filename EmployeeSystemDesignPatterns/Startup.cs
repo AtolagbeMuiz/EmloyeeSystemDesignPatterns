@@ -56,7 +56,7 @@ namespace EmployeeSystemDesignPatterns
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Employees}/{action=Index}/{id?}");
+                    pattern: "{controller=Employees}/{action=Create}/{id?}");
             });
         }
     }

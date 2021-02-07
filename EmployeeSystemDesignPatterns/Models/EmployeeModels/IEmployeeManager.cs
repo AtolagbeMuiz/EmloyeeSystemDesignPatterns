@@ -9,5 +9,7 @@ namespace EmployeeSystemDesignPatterns.Models.EmployeeModels
     {
         double getPay();
         double getBonus();
+        //double houseAllowance();
+        //double medicalAllowance();
     }
 }

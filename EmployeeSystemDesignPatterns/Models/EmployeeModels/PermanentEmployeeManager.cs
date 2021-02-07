@@ -16,5 +16,12 @@ namespace EmployeeSystemDesignPatterns.Models.EmployeeModels
         {
             return 8;
         }
+
+        public double getHouseAllowance()
+        {
+            return 100;
+        }
+
+
     }
 }

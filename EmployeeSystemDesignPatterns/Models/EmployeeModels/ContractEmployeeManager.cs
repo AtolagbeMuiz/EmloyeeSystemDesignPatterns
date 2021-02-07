@@ -16,5 +16,11 @@ namespace EmployeeSystemDesignPatterns.Models.EmployeeModels
         {
             return 8;
         }
+
+
+        public double getMedicalAllowance()
+        {
+            return 50;
+        }
     }
 }

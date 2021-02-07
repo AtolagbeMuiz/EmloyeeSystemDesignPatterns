@@ -30,6 +30,12 @@ namespace EmployeeSystemDesignPatterns.Models.EmployeeModels
         [Required]
         public double Bonus { get; set; }
 
+        [Required]
+        public double MedicalAllowance { get; set; }
+
+        [Required]
+        public double HouseAllowance { get; set; }
+
         public int EmployeeTypeId { get; set; }
 
         [ForeignKey("EmployeeTypeId")]

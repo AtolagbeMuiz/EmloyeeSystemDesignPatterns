@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EmployeeSystemDesignPatterns.Data;
 using EmployeeSystemDesignPatterns.Models.EmployeeModels;
-using EmployeeSystemDesignPatterns.Models.Simple_Factory;
+using EmployeeSystemDesignPatterns.Models.Factory_Method;
 
 namespace EmployeeSystemDesignPatterns.Controllers.Employee
 {
@@ -60,9 +60,15 @@ namespace EmployeeSystemDesignPatterns.Controllers.Employee
             if (ModelState.IsValid)
             {
                 EmployeeManagerFactory empFactory = new EmployeeManagerFactory();
-                var empManager = empFactory.createFactory(employee.EmployeeTypeId);
-                employee.Bonus = empManager.getBonus();
-                employee.HourlyPay = empManager.getPay();
+                //var empManager = empFactory.createFactory(employee.EmployeeTypeId);
+
+                var baseEmployeeFactory = empFactory.createEmployeeTypeFactory(employee);
+                baseEmployeeFactory.ComputeAllowances();
+                
+                
+                //employee.Bonus = empManager.getBonus();
+                //employee.HourlyPay = empManager.getPay();
+               
                 _context.Add(employee);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
