@@ -3,14 +3,16 @@ using EmployeeSystemDesignPatterns.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EmployeeSystemDesignPatterns.Migrations
 {
     [DbContext(typeof(EmployeeDBContext))]
-    partial class EmployeeDBContextModelSnapshot : ModelSnapshot
+    [Migration("20210207233343_AddedComputerDetails")]
+    partial class AddedComputerDetails
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

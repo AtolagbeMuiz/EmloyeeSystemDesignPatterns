@@ -36,6 +36,8 @@ namespace EmployeeSystemDesignPatterns.Models.EmployeeModels
         [Required]
         public double HouseAllowance { get; set; }
 
+        public string ComputerDetails { get; set; }
+
         public int EmployeeTypeId { get; set; }
 
         [ForeignKey("EmployeeTypeId")]
