@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using EmployeeSystemDesignPatterns.Data;
 using EmployeeSystemDesignPatterns.Models.EmployeeModels;
 using EmployeeSystemDesignPatterns.Models.Factory_Method;
+using EmployeeSystemDesignPatterns.Models.Abstract_Factory;
 
 namespace EmployeeSystemDesignPatterns.Controllers.Employee
 {
@@ -59,16 +60,23 @@ namespace EmployeeSystemDesignPatterns.Controllers.Employee
         {
             if (ModelState.IsValid)
             {
-                EmployeeManagerFactory empFactory = new EmployeeManagerFactory();
+                //For Simple Factory
+                //EmployeeManagerFactory empFactory = new EmployeeManagerFactory();
                 //var empManager = empFactory.createFactory(employee.EmployeeTypeId);
-
-                var baseEmployeeFactory = empFactory.createEmployeeTypeFactory(employee);
-                baseEmployeeFactory.ComputeAllowances();
-                
-                
                 //employee.Bonus = empManager.getBonus();
                 //employee.HourlyPay = empManager.getPay();
-               
+
+                //For Factory Method Design Pattern
+                EmployeeManagerFactory empFactory = new EmployeeManagerFactory();
+                var baseEmployeeFactory = empFactory.createEmployeeTypeFactory(employee);
+                baseEmployeeFactory.ComputeAllowances();
+
+                //For Abstract Factory Method Pattern
+                EmployeeSystemFactory employeeSystemFactory = new EmployeeSystemFactory();
+                var createdFactory = employeeSystemFactory.Create(employee);
+                EmployeeSystemManager manager = new EmployeeSystemManager(createdFactory);
+                employee.ComputerDetails = manager.getSystemDetails();
+
                 _context.Add(employee);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

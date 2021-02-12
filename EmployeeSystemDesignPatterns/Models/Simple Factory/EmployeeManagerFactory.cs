@@ -17,7 +17,7 @@ namespace EmployeeSystemDesignPatterns.Models.Simple_Factory
         public IEmployeeManager createFactory(int empID)
         {
             IEmployeeManager returnValue=null;
-            if (empID== 1)
+            if (empID == 1)
             {
                 return new PermanentEmployeeManager();
             }
